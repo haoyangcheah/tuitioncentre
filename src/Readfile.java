@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
 public class Readfile {
+
     public static void main(String[] args) {
         try {
             File myObj = new File("filename.txt");
