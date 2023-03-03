@@ -3,6 +3,14 @@ public class Name {
     private String lname;
     private String mname;
 
+    //parameterized constructor
+    public Name(String fname,String mname,String lname){
+         this.fname = fname;
+         this.mname = mname;
+         this.lname = lname;
+    }
+
+    //default constructor
     public Name(){
 
     }

@@ -1,28 +1,42 @@
 public class Student {
     // data/attributes
     private Name name;
-    private String kp;
-    private String address;
+    private String ic;
+    private Address address;
     private String schoolname;
     private float[] marks = new float[5];
 
     // methods or operations
-    float calcAvg() {
-        return 0;
+    public float calcAvg() {
+        float sum = 0;
+        for(float mark:marks){
+            sum += mark;
+        }
+        return sum / 5;
     }
 
-    float calcMin() {
-        return 0;
+    public float calcMin() {
+        float min = marks[0];
+        for(int i=1;i<marks.length;i++){
+            if(marks[i] < min){
+                min = marks[i];
+            }
+        }
+        return min;
     }
 
-    void setName(Name thename) {
+    public void setName(Name thename) {
         name = thename;
     }
 
     void setMark(float mark, int i) throws Exception{
         if(i > marks.length -1){
             throw new IndexOutOfBoundsException("Array index out of bound");
-        }else{
+        }
+        if(mark >100 || mark <0){
+            throw new Exception("Mark out of range");
+        }
+        else{
         marks[i] = mark;
 
         }
@@ -33,19 +47,19 @@ public class Student {
         return name;
     }
 
-    public String getKp() {
-        return kp;
+    public String getIc() {
+        return ic;
     }
 
-    public void setKp(String kp) {
-        this.kp = kp;
+    public void setIc(String ic) {
+        this.ic = ic;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -61,30 +75,12 @@ public class Student {
         return marks;
     }
 
-    public void setMarks(float[] marks) {
-        this.marks = marks;
-    }
+
 
     void displayMarks(){
         for(float mark:marks){
             System.out.println(mark);
         }
     }
-    public static void main(String[] args) {
-        Student stud0 = new Student();
-        try{ //smtg in here can cause exception
 
-        stud0.setMark(10,0);
-        stud0.setMark(10,1);
-        stud0.setMark(30,2);
-        stud0.setMark(40,3);
-        stud0.setMark(50,8);
-        }
-        catch(Exception e){ //action to taken if got error
-            System.out.println("Got error");
-            e.printStackTrace();
-
-        }
-        stud0.displayMarks();
-    }
 }
